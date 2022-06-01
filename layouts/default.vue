@@ -18,14 +18,17 @@
 						<b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
 					</b-nav-form>
 
-					<b-nav-item-dropdown right>
+					<b-nav-item-dropdown right v-if="user && user !== 'undefined'">
 						<!-- Using 'button-content' slot -->
 						<template #button-content>
-							User
+							{{ user.nickname }}
 						</template>
-						<b-dropdown-item href="#">Profile</b-dropdown-item>
-						<b-dropdown-item href="#">Sign Out</b-dropdown-item>
+						<b-dropdown-item href="/profile/">Profile</b-dropdown-item>
+						<b-dropdown-item to="/logout/">Sign Out</b-dropdown-item>
 					</b-nav-item-dropdown>
+
+					<b-nav-item to="/login/" v-if="!user || user == 'undefined'">Login</b-nav-item>
+
 				</b-navbar-nav>
 			</b-collapse>
 		</b-navbar>
@@ -50,3 +53,16 @@ main {
 	padding: 1rem;
 }
 </style>
+
+<script>
+	export default {
+		data() {
+			return {
+				user: this.$auth.user
+			}
+		},
+		created: function() {
+			console.log(this.$auth);
+		}
+	}
+</script>

@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
 		<div class="main-container">
-			Logging...
+			Buongiorno stocazzo!
 		</div>
 	</div>
 </template>
@@ -10,13 +10,11 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-	name: 'LoginPage',
-	auth: false,
+	name: 'profilePage',
 	data() {
-		
-	},
-    created: async function() {
-        await this.$auth.loginWith('auth0');
-    }
+        return {
+            user: this.$auth.user
+        }
+	}
 })
 </script>

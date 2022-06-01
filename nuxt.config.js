@@ -48,6 +48,7 @@ export default {
       auth0: {
         domain: process.env.AUTH_DOMAIN,
         clientId: process.env.CLIENTID,
+        loginRedirectUri: process.env.LOGOUTURL,
         logoutRedirectUri: process.env.LOGOUTURL,
       }
     }
