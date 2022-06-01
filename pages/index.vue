@@ -1,6 +1,8 @@
 <template>
-	<div class="games-list">
-		<SingleGame name="Lollo"/>
+	<div class="container">
+		<div class="main-container">
+			<SingleGame name="Lollo"/>
+		</div>
 	</div>
 </template>
 
@@ -15,7 +17,7 @@ export default Vue.extend({
 		}
 	},
 	async fetch() {
-		this.game = await this.$axios.$get('api/games/1649');
+		//this.game = await this.$axios.$get('api/games/1649');
 	},
 	methods: {
 		goBack() {

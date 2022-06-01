@@ -1,13 +1,13 @@
 <template>
 	<div>
-		<b-navbar toggleable="lg" type="dark" variant="success">
-			<b-navbar-brand href="#">MX Sessions</b-navbar-brand>
+		<b-navbar toggleable="lg" type="light" variant="default" fixed="top">
+			<b-navbar-brand to="/">MX Sessions</b-navbar-brand>
 
 			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav>
-					<b-nav-item href="#">Link</b-nav-item>
+					<b-nav-item to="/">Home</b-nav-item>
 					<b-nav-item href="#" disabled>Disabled</b-nav-item>
 				</b-navbar-nav>
 
@@ -37,14 +37,16 @@
 </template>
 
 <style>
-body {
+body, html {
 	margin: 0;
+	background-color: #eff2f6;
+	min-height: 100vh;
 }
 main {
-	margin: 0 auto;
-	padding: 0 1rem;
-	margin-top: 100px;
-	max-width: 1280px;
-	text-align: center;
+	margin-top: 60px;
+}
+.main-container {
+	background-color: #fff;
+	padding: 1rem;
 }
 </style>
