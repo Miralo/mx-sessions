@@ -41,8 +41,17 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
-    '@nuxt/http'
+    '@nuxtjs/auth-next'
   ],
+  auth: {
+    strategies: {
+      auth0: {
+        domain: process.env.AUTH_DOMAIN,
+        clientId: process.env.CLIENTID,
+        logoutRedirectUri: process.env.LOGOUTURL,
+      }
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -54,7 +63,7 @@ export default {
 
   proxy: {
     '/api/': {
-      target: 'http://localhost:3001',
+      target: process.env.APIURL,
       changeOrigin: true,
     },
   },
@@ -68,5 +77,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  router: {
+    middleware: ['auth']
   }
 }
